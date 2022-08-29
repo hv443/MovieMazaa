@@ -13,7 +13,6 @@ function App() {
     fetch(`${API}&s=${title}`)
       .then(res => res.json())
       .then(data => setMovieName(data.Search))
-
   };
 
 
@@ -35,8 +34,8 @@ function App() {
 
       <div className="movie">
         {movieName?.length > 0 ? (
-          movieName.map((movie) => (
-            <MovieCard movies={movie} key={!movie.imdbID ? '1' : movie.imdbID} />
+          movieName.map((movie, id) => (
+            <MovieCard movies={movie} key={id} />
           ))
         ) : (
           <h3>No Movie Found</h3>
